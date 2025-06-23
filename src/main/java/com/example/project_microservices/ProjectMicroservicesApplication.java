@@ -16,9 +16,10 @@ public class ProjectMicroservicesApplication implements WebMvcConfigurer{
 	
 	@Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowedOrigins("*");
-        WebMvcConfigurer.super.addCorsMappings(registry);
-    }
+    registry.addMapping("/**")
+            .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
+            .allowedHeaders("*")
+            .allowedOriginPatterns("*") // Cambia por tus dominios reales
+            .allowCredentials(true);
+}
 }
